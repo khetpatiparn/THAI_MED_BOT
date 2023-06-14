@@ -1,0 +1,38 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - news_topic
+
+responses:
+  utter_greet:
+  - text: "ว่าไง! เป็นอย่างไรบ้าง?"
+
+  utter_cheer_up:
+  - text: "นี่คือสิ่งที่จะเป็นกำลังใจให้คุณ:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "สิ่งนั้นช่วยคุณได้หรือไม่?"
+
+  utter_happy:
+  - text: "เยี่ยมไปเลย!"
+
+  utter_goodbye:
+  - text: "ลาก่อน"
+
+  utter_iamabot:
+  - text: "ฉันเป็นบอทที่สร้างสรรค์โดย Rasa"
+
+actions:
+  - action_call_external_api
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
