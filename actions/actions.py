@@ -2,9 +2,9 @@ import requests
 
 from typing import Any, Text, Dict, List
 
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-# from rasa_sdk.events import SlotSet
+from rasa_sdk.types import DomainDict
 
 
 class CallExternalAPI(Action):
@@ -63,4 +63,21 @@ class CallExternalAPI(Action):
 
 # def TellDisease(mood):
 #     return dispatcher.utter_message(text=mood)
-    
+
+##################################################
+# 2. ดึง entity มาเก็บใน slots 
+# class ValidateSymtomsForm(FormValidationAction):
+
+#     def name(self) -> Text:
+#         return "validate_symtoms_form"
+
+#     def validate_pizza_size(
+#         self,
+#         slot_value: Any,
+#         dispatcher: CollectingDispatcher,
+#         tracker: Tracker,
+#         domain: DomainDict,
+#     ) -> Dict[Text, Any]:
+#         # เงื่อนไขต่างๆในการใส่slot
+            
+#         return {"symtoms": slot_value}

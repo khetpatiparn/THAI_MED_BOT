@@ -33,6 +33,21 @@ responses:
 actions:
   - action_call_external_api
 
+# entities:
+# - symtoms
+# slots:
+#   symtoms:
+#     type: text
+#     influence_conversation: true
+#     mappings:
+#     - type: from_entity
+#       entity: symtoms
+
+# forms:
+#   symtoms_form:
+#     required_slots:
+#     - symtoms
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
