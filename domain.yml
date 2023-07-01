@@ -8,7 +8,7 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - news_topic
+  - inform_symptom # ตัวอย่างที่ผู้ใช้จะทำการบอกอาการให้กับบอท
 
 responses:
   utter_greet:
@@ -30,23 +30,31 @@ responses:
   utter_iamabot:
   - text: "ฉันเป็นบอทที่สร้างสรรค์โดย Rasa"
 
+  utter_ask_symptom: # เริ่มต้นให้บอทถามอาการ 
+  - text: "กรุณาบอกอาการของคุณให้ฉันรู้"
+
+  utter_remember: # บอก user ว่าวิเคราห์อาการ
+  - text: "กำลังวิเคราะห์อาการของคุณ..."
+
 actions:
-  - action_call_external_api
+  - action_tell_symptom
 
-# entities:
-# - symtoms
-# slots:
-#   symtoms:
-#     type: text
-#     influence_conversation: true
-#     mappings:
-#     - type: from_entity
-#       entity: symtoms
+entities:
+- symptom
+slots:
+  symptom:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: symptom
+      conditions:
+      - active_loop: symptom_form # ฟอร์มที่ใช้เก็บอาการ
 
-# forms:
-#   symtoms_form:
-#     required_slots:
-#     - symtoms
+forms:
+  symptom_form:
+    required_slots:
+    - symptom
 
 session_config:
   session_expiration_time: 60

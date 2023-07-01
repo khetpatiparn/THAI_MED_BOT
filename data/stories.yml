@@ -29,10 +29,4 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-- story: emotional_for_news_topic
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: news_topic
-  - action: action_call_external_api
 

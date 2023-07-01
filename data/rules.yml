@@ -12,7 +12,26 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Tell mood
+# actions
+- rule: Tell the Symptom
   steps:
-  - intent: news_topic
-  - action: action_call_external_api
+  - intent: inform_symptom
+  - action: utter_remember
+  - action: action_tell_symptom
+
+# forms
+- rule: Activate Symptom form
+  steps:
+  - intent: utter_ask_symptom # เริ่มให้บอทถามอาการ
+  - action: symptom_form
+  - active_loop: symptom_form
+
+- rule: Submit Symptom form
+  condition:
+  - active_loop: symptom_form
+  steps:
+  - action: symptom_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_remember
