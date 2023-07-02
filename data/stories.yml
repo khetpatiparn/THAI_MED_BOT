@@ -30,3 +30,19 @@ stories:
   - action: utter_goodbye
 
 
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_for_bot_help
+  - action: symptom_form
+  - active_loop: symptom_form
+  - slot_was_set:
+    - requested_slot: symptom
+  - slot_was_set:
+    - symptom:
+      - ปวดหัว
+      - ตัวร้อน
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_remember

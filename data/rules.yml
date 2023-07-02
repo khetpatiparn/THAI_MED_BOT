@@ -17,12 +17,12 @@ rules:
   steps:
   - intent: inform_symptom
   - action: utter_remember
-  - action: action_tell_symptom
+  - action: action_ask_symptom
 
 # forms
 - rule: Activate Symptom form
   steps:
-  - intent: utter_ask_symptom # เริ่มให้บอทถามอาการ
+  - intent: ask_for_bot_help # เริ่มให้บอทถามอาการ
   - action: symptom_form
   - active_loop: symptom_form
 

@@ -1,61 +1,55 @@
-version: "3.0"
-
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - inform_symptom # ตัวอย่างที่ผู้ใช้จะทำการบอกอาการให้กับบอท
-
-responses:
-  utter_greet:
-  - text: "ว่าไง! เป็นอย่างไรบ้าง?"
-
-  utter_cheer_up:
-  - text: "นี่คือสิ่งที่จะเป็นกำลังใจให้คุณ:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "สิ่งนั้นช่วยคุณได้หรือไม่?"
-
-  utter_happy:
-  - text: "เยี่ยมไปเลย!"
-
-  utter_goodbye:
-  - text: "ลาก่อน"
-
-  utter_iamabot:
-  - text: "ฉันเป็นบอทที่สร้างสรรค์โดย Rasa"
-
-  utter_ask_symptom: # เริ่มต้นให้บอทถามอาการ 
-  - text: "กรุณาบอกอาการของคุณให้ฉันรู้"
-
-  utter_remember: # บอก user ว่าวิเคราห์อาการ
-  - text: "กำลังวิเคราะห์อาการของคุณ..."
-
-actions:
-  - action_tell_symptom
-
+- inform_symptom
+- ask_for_bot_help
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- request_symptom_form
 entities:
 - symptom
 slots:
   symptom:
-    type: text
+    type: list
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: symptom
       conditions:
-      - active_loop: symptom_form # ฟอร์มที่ใช้เก็บอาการ
-
+      - active_loop: symptom_form
+responses:
+  utter_greet:
+  - text: ว่าไง! เป็นอย่างไรบ้าง?
+  utter_cheer_up:
+  - text: 'นี่คือสิ่งที่จะเป็นกำลังใจให้คุณ:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: สิ่งนั้นช่วยคุณได้หรือไม่?
+  utter_happy:
+  - text: เยี่ยมไปเลย!
+  utter_goodbye:
+  - text: ลาก่อน
+  utter_iamabot:
+  - text: ฉันเป็นบอทที่สร้างสรรค์โดย Rasa
+  utter_ask_symptom:
+  - text: กรุณาบอกอาการของคุณให้ฉันรู้
+  utter_remember:
+  - text: กำลังวิเคราะห์อาการของคุณ...
+  utter_symptom_slots:
+  - text: สิ่งที่คุณบอกคือ {symptom}
+  utter_ask_symptom_more:
+  - text: เราขอทราบอาการของคุณเพิ่มเติมอีกซักหน่อย
+actions:
+- action_ask_symptom
+- utter_remember
 forms:
   symptom_form:
     required_slots:
     - symptom
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true

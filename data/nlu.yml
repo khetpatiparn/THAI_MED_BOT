@@ -1,5 +1,4 @@
 version: "3.0"
-
 nlu:
 - intent: greet
   examples: |
@@ -13,7 +12,6 @@ nlu:
     - สวัสดีตอนเช้า
     - สวัสดีตอนเย็น
     - สวัสดีตอนเที่ยง
-
 - intent: goodbye
   examples: |
     - ไว้เจอกันใหม่
@@ -23,7 +21,6 @@ nlu:
     - ขอให้โชคดี
     - กู้ดไนท์
     - แล้วเจอกัน
-
 - intent: affirm
   examples: |
     - ครับ
@@ -33,7 +30,6 @@ nlu:
     - โอเค
     - ใช่เลย
     - ถูกต้อง
-
 - intent: deny
   examples: |
     - ไม่
@@ -42,7 +38,6 @@ nlu:
     - ฉันไม่คิดอย่างนั้น
     - ไม่มีทาง
     - ไม่เอา
-
 - intent: mood_great
   examples: |
     - เยี่ยมเลย
@@ -52,7 +47,6 @@ nlu:
     - ฉันรู้สึกดีมาก
     - มหัศจรรย์
     - โคตรดี
-
 - intent: mood_unhappy
   examples: |
     - ไม่ค่อยโอเค
@@ -62,7 +56,11 @@ nlu:
     - ไม่ดีเลย
     - ไม่มีความสุขเลย
     - หนักหน่วงมาก
-
-- intent: inform_symptom # ตัวอย่างที่ผู้ใช้จะทำการบอกอาการให้กับบอท
+- intent: ask_for_bot_help
+  examples: |
+    - ฉันอยากทราบอาการของฉัน
+- intent: inform_symptom
   examples: |
     - ฉันรู้สึก[ปวดหัว](symptom)และมีอาการ[ตัวร้อน](symptom)เล็กน้อย
+    - ฉันรู้สึก[ปวดหัว](symptom)และ[ตัวร้อน](symptom)เล็กน้อย
+    - ฉันรู้สึก[ปวดหัว](symptom)และ[ตัวร้อน](symptom)เล็กน้อย

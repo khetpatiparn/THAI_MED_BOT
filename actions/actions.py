@@ -4,28 +4,51 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-# from rasa_sdk.types import DomainDict
+from rasa_sdk.types import DomainDict
+from rasa_sdk.events import SlotSet
+from .semantic import get_input_symptom
 
-class ActionSaySymptom(Action): # บอกอาการผ่าน API
+class ActionAskSymptom(Action):
 
     def name(self) -> Text:
-        return "action_tell_symptom"
-
+        return "action_ask_symptom"
+    
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        url = "http://127.0.0.1:5000/predict"
-        response = requests.get(url)
-        data = response.json()
-        
-        dispatcher.utter_message(text="ข้อมูลจาก API: {}".format(data))
+        symptoms = tracker.get_slot("symptom")
+        if symptoms:
+            result = get_input_symptom(symptoms)
+            dispatcher.utter_message(text="{}".format(result))
+            # Do something with the result if needed
+        else:
+            dispatcher.utter_message(text="No symptoms provided.")
+        # dispatcher.utter_message(text="{}".format(symptoms)) # ['ปวดหัว', 'ตัวร้อน']
+    
         return []
+# ฉันรู้สึกปวดหัวและตัวร้อนเล็กน้อย
+# ฉันอยากทราบอาการของฉัน
 
 # class ActionSaySymptom(Action): # บอกอาการผ่าน API
 
 #     def name(self) -> Text:
 #         return "action_tell_symptom"
+
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+#         symptoms = tracker.get_slot("symptom") # รับ slot
+#         result = semantic.search(symptoms) # เรียกใช้งานฟังก์ชัน search(symptoms) จากไฟล์ semanticsearch.py
+#         message = format_result(result)  # ทำการจัดรูปแบบข้อความผลลัพธ์ที่ได้
+#         dispatcher.utter_message(text=message)
+#         return []
+
+# class ActionSaySymptom2(Action): # บอกอาการผ่าน API
+
+#     def name(self) -> Text:
+#         return "action_tell_symptom2"
 
 #     def run(self, dispatcher: CollectingDispatcher,
 #             tracker: Tracker,
@@ -42,8 +65,6 @@ class ActionSaySymptom(Action): # บอกอาการผ่าน API
 #             dispatcher.utter_message(text = message)
             
 #         return []
-
-
 
 
 # def CallApi(url = "http://127.0.0.1:5000/predict"):
