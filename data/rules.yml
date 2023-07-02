@@ -13,11 +13,11 @@ rules:
   - action: utter_iamabot
 
 # actions
-- rule: Tell the Symptom
-  steps:
-  - intent: inform_symptom
-  - action: utter_remember
-  - action: action_ask_symptom
+# - rule: Tell the Symptom
+#   steps:
+#   - intent: inform_symptom
+#   - action: utter_remember
+#   - action: action_ask_symptom
 
 # forms
 - rule: Activate Symptom form
@@ -35,3 +35,4 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_remember
+  - action: action_ask_symptom

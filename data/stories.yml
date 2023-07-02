@@ -29,8 +29,6 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-
-
 - story: interactive_story_1
   steps:
   - intent: ask_for_bot_help
@@ -46,3 +44,4 @@ stories:
     - requested_slot: null
   - active_loop: null
   - action: utter_remember
+  - action: action_ask_symptom

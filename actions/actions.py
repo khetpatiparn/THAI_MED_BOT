@@ -18,14 +18,12 @@ class ActionAskSymptom(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         symptoms = tracker.get_slot("symptom")
-        if symptoms:
+        if not symptoms:
+            dispatcher.utter_message(text="เริ่มบอกอาการของคุณมาได้เลยย")
+        else:
             result = get_input_symptom(symptoms)
             dispatcher.utter_message(text="{}".format(result))
-            # Do something with the result if needed
-        else:
-            dispatcher.utter_message(text="No symptoms provided.")
-        # dispatcher.utter_message(text="{}".format(symptoms)) # ['ปวดหัว', 'ตัวร้อน']
-    
+            
         return []
 # ฉันรู้สึกปวดหัวและตัวร้อนเล็กน้อย
 # ฉันอยากทราบอาการของฉัน
