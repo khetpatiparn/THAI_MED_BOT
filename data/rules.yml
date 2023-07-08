@@ -22,7 +22,7 @@ rules:
 # forms
 - rule: Activate Symptom form
   steps:
-  - intent: ask_for_bot_help # เริ่มให้บอทถามอาการ
+  - intent: ask_for_bot_help # เริ่มให้บอทถามอาการ :ฉันอยากทราบอาการของฉัน
   - action: symptom_form
   - active_loop: symptom_form
 
@@ -36,3 +36,22 @@ rules:
     - requested_slot: null
   - action: utter_remember
   - action: action_ask_symptom
+
+
+# - rule: Activate More Symptom form
+#   steps:
+#   - action: action_session_start
+#   - active_loop: more_symptom_form
+
+# - rule: Submit More Symptom form
+#   condition:
+#   - active_loop: more_symptom_form
+#   steps:
+#   - action: more_symptom_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_remember
+#   - action: action_ask_more_symptom
+
+

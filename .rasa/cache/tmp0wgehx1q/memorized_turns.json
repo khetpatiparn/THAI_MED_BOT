@@ -1,0 +1,30 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdnB2fll8Un5RfEp+RmlNQWxsLADHCH/8=": "symptom_form",
+    "eJyNjUEKgDAMBL/SB4jotV8RCSoRi21TmihI8e9G9K63THaS7cpZmZIy7jBM4ihaU54B4hDQmhe8Y8Go7saY1XFRUTTmFWbKMJLAgj6dH+/4CEko3DdBVfYkrM67tqZr66b/U9Nf4GtGmg==": "utter_remember",
+    "eJyljcEKg0AMRH9lP6CIXvdXRIKWiEs3myWJhbL476bUew/eMpk3M2M7HqFVwTfMT0tcYmi/A8pMGMMlclLD4uyuKM6k4tLc1hesLLCwwYa5Hn/q9EPVmL4ZclQzmzpzvWMYh66f7s/sZiggSEgLyq2h6QTx1W3r": "action_ask_symptom",
+    "eJy1jUEKwzAMBL/iB5SSXP2VEERSVGpqWUZSCsXk71Wo7z2E3rTa2d2p7ZfQquALlpslLjG07wFlIYyhi5zUsDi7KYozqbg0t/UJdxZY2eCBue4/6vRN1ZiODDmqmU2d6e8YpvE6zOdnNjMUECSkFeWPQ10csV59amz+AIoklu4=": "action_listen",
+    "eJy1kdEKwjAMRX+lHzBEX/sro5RNIgaXtqSZIGP/bsrqXufQvfU2NzkJt53mxkyJ4em7q2AM1kzLw4eOwJoqBswCQb1jBlYPBpWi5fzwt8i+j+LvMKR5Y1x+UZJIpYfUmocoWT3125r2cjq73zGjCLBnIKAe+EBQFaWtjj4etmaxxVEICoJa2mpxjfnAMZQM1q2/v5Miw45j/7jE7lR3sd0b0nsmKA==": "action_ask_symptom",
+    "eJy1kdEKwyAMRX/FDyhje/VXikg7MiYzKjEdjNJ/X6Sur13ZfPPqSW6u6eelU3MieNrhyi4Greb1YMOAoFUV3mWGIOyUgYRxQSTLc37YWyQ7RrZ38GnZaZdfmDhiqUFBs4+chanXWvWX09n8bjMxA1kCBByBGhpVUcpq6/Zm2y72fMTEsQNB+oqYTn3MXSg72Kb+PidGggNh/zjE4a22+YBG2c0b+ttWeQ==": "action_listen",
+    "eJy1kd0KwjAMRl+lDzBEb/sqpZRNIhb7R5IJUvbupqzudojurl97khMaU5dB1YLwdOOVfU5a1fXg0hhBqx6CJ4Yk7EyAwvgkkeWZHu6W0U2Z3R1CWXba0SsWzrHVREEpZCZh+rVW5nI62981MzOgQ4gQJ8ADRT20st76eNm2iz2PSDx7EMR0xA7qI/ep7WCb+t8f+pXbvgHiafO2": "action_ask_symptom",
+    "eJy1kVEKwyAMhq/iAcrYXr1KkdCOjMmMiqaDIb37InV9LdvaN3/9kk+SvsydKjHhE4Yr2+C1KssB/ECoVQvOZkYv7JQxCWO9RJbn/IBbSDAGhju6OG+0yy+KHKjWkKDZBc7CtGut+svpbP7XTMyYICEhjZgOFLVQy1rr42XrLrY8IrFsUZC+IaZTH7n1dQfrr/ce6I7un2b8ld+8AdfSJBY=": "action_listen",
+    "eJyNzs0KwyAMAOBX8QFG6a6+SimhHRmVqhGTCUX67ovYUw9jt/x8+Znq+TA1ZSywvMRRtKb2AOIS0Jor8Y4Fo9oPY1bjoqaibd7hTRlWEtjQp7OtazMFwRMlpX0PHyEJhYaDmh8Xb5I9Cau5ytZMz2Gc//lk/gKJE1P0": "utter_remember",
+    "eJy9jkEKhDAMRa/SA8ig215FJKhEpkzblCYjDMW7m6IrF4Mrd/nJy/+/L1tjSsq4wjiLo2hNOQaIY0BrTuEdC0Zlv4xZGRdVip75AwtlmEjgjT5t1a7+rAieKCl6+PAvJKFQ4aDMn8QLyZ6ElTnX1vTdqx1uNnkiZtgBIJl6jw==": "action_ask_symptom",
+    "eJzFjkEKwkAMRa8yBxDR7VyllNBKxKGTyZCkBRl6d1PalQsRXLjLT17+/11bT6FVwQWGmyUuMbR9gDIQxnCInNSwODsrijOpuDQ/6wR3FhjZ4IG5rpvd9rMgZObq6O6jT6rGtMHkzIfEN1IzmzpzrGPorudL/2WT/8fMZiggSEgjyk9B/QuCu6Hg": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taS2NhYA6dwbhQ==": "utter_greet",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpbhMiAUAQvc0lw==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpeSZQMAVufn5KSDzE4EGxQIAPEFQdQ==": "utter_happy",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpeSZQMAVufn5KSDzE4l0SkZiQUElfmNiAVKZa5w=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpeSZQMAVufn5KfGleRmJBQWVtbWxAN75UWc=": "utter_cheer_up",
+    "eJydjlEKgCAQRK/iATqBV4lYxJYUchVdgxDv3oL9G/0MM/B4zNr6olrKeIGx7CNp1UYBMgG1esfpCyMJWwtmYTzJZK2OjMh94qjMmGGg/wyTFyHGHSo5k9L97Yx1KFnTzLU9XiFuqQ==": "utter_did_that_help",
+    "eJytjlEKgCAQRK/iATqBV4lYRIcUahVbg5DunlD/RvQzzMDjMWM9B1VTxk7GSoisVb0LsVmh1TOWsAm4sWVDbkzgNkWrOQNydhxFBJlu9Juh82KN0VFhb1I63p2xHi1L+sPlgiPxRshj6QqnC1EGjek=": "action_listen",
+    "eJytj1EKwyAQRK/iAXoCr1LCInGIQrKKWQNFvHsX7L+h7c8yA4/H7LP1h2m54CK3SkxsTRuB2B2w5lP2eApY2XqiKBNZq1izFUD6xFFFUGig3xkmK46UPFUOLufXvTFrgN6a/+Hy0ZMEJxSw/yic/OnBqlje0A2nVg==": "utter_goodbye",
+    "eJytj9EJwzAMRFfxAJ3Aq4Qg3PiIDYlsHLkQTHavIP0NDm1/hA6Op6ehHQ/TcsGL3CQxsTXtXIjdCms+YYmbgLVbNxTtRNYo1swFkKPDqCIodFa/I3Qs1pQ8VQ4u5/2ezBSgs+Z/sHz0JMEJBSw/Ajt/evBNp1mPPndcIcY3+fTA0w==": "action_listen",
+    "eJy1klEKwyAMQK/iAcrYfr1KEWlHxsIalZgORundF6nrb1e2/hl9yUuI7TQ3ZkoMT99dBWOwZloOPnQE1tRgwCwQlB0zsDIYNBR9zg9/i+z7KP4OQ5o3yuUXJYlUckjRPETJytRra9rL6ex+14wiwJ6BgHrgA0U1KGm19PGydRdbHpWgICjSVsQ15iPHUHawdv39nBQZdgz7xyZ2fp5dZvcGibYlcg==": "utter_remember",
+    "eJy1klEKwjAMhq/SAwzR112ljLJJxODSjjQTpOzuplj3OovbW//mT76ExKalMWlieLr+Khh8a9Ln4XxP0JoiRowCXr1zBFYPepWi4fhwt8BuCOLuME7LRrn4okkC5RxSaxyDRPWU79bYy+nc/Y+ZRYAdAwENwAeCishppfTxsHUXWxyFoCCoxRZL15gvHH3ewdr173NSYKgYdscmKo9nR3L1PVWxuzfzF1QR": "action_ask_symptom",
+    "eJy1kl0KwjAMx6/SAwzR111ljLBJxGLTjjQTpOzuplj3OofrW9P8k1++urQ0Jk2MTxiuYoNvTfo8wA+ErSmGs1HQq3aOyKqxXk1Rd3zALTCMQeCOblo20sUXTRIox5BKowsSVVO+W9NdTuf+f8wsggyMhDQiVwQVI4eV1PVh6y62OAqxYlElXZH0jfnCrc87WKv+vU8KjDuaPbCIncdzIHn3PdUZfaWp928RX4Ri": "action_listen",
+    "eJytj9EJwzAMRFfxAJ3Aq4QgRKzUglg2ilwoxrvXkP67tP0Rd/B4nJbWb64VpQfgZpzFu3YFEEzk3bscfBrJYOtJOhiWUc27uxJZnziqGSlc6HeGyYqUc4AqEUt5fjZmizRuLf9wBQ5gEQ0iHT8KJ3/ivrOm3tcXH2yoGw==": "utter_happy",
+    "eJytj0EKAyEMRa/iAXoCr1JKCGOmBsYomVgoMnevYLfFoe0m5MPn5eXajotrRekBuBhn8a6NBQQTefcOG+9G0rt1J+0dlh7Nu7sS2TFhVDNSGNXvCBOLlHOAKhFLeZ6TWSL1Wcs/WIEDWESDSNuPwMmfuK6s6ZzVuPcRcXsBe37Blg==": "action_listen"
+  }
+}

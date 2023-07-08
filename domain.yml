@@ -3,8 +3,9 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- ask_for_bot_help
 - inform_symptom
+- ask_for_bot_help
+- thankyou
 - greet
 - goodbye
 - affirm
@@ -41,12 +42,13 @@ responses:
   utter_ask_symptom:
   - text: กรุณาบอกอาการของคุณให้ฉันรู้
   utter_remember:
-  - text: กำลังวิเคราะห์อาการของคุณ...
+  - text: เรากำลังวิเคราะห์อาการของคุณ...
   utter_symptom_slots:
   - text: สิ่งที่คุณบอกคือ {symptom}
   utter_ask_symptom_more:
   - text: เราขอทราบอาการของคุณเพิ่มเติมอีกซักหน่อย
 actions:
+- action_ask_more_symptom
 - action_ask_symptom
 - utter_remember
 forms:
