@@ -89,3 +89,41 @@ stories:
   - action: utter_remember
   - action: action_ask_symptom
   - intent: thankyou
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_for_bot_help
+  - action: symptom_form
+  - active_loop: symptom_form
+  - slot_was_set:
+    - requested_slot: symptom
+  - slot_was_set:
+    - symptom:
+      - เจ็บคอ
+      - ตัวร้อน
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_remember
+  - action: action_ask_symptom
+  - intent: thankyou
+  - action: utter_thank_for_help
+
+- story: interactive_story_2
+  steps:
+  - intent: ask_for_bot_help
+  - action: symptom_form
+  - active_loop: symptom_form
+  - slot_was_set:
+    - requested_slot: symptom
+  - slot_was_set:
+    - symptom:
+      - อ่อนเพลีย
+      - ไม่มีแรง
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_remember
+  - action: action_ask_symptom
