@@ -110,6 +110,7 @@ stories:
   - action: action_ask_symptom
   - intent: thankyou
   - action: utter_thank_for_help
+  - action: utter_tell_user_to_check_with_doctor
 
 - story: interactive_story_2
   steps:
@@ -127,3 +128,26 @@ stories:
   - active_loop: null
   - action: utter_remember
   - action: action_ask_symptom
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_for_bot_help
+    entities:
+    - symptom: อาการ
+  - action: symptom_form
+  - active_loop: symptom_form
+  - slot_was_set:
+    - requested_slot: symptom
+  - slot_was_set:
+    - symptom:
+      - เป็นลม
+      - หน้ามืด
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_remember
+  - action: action_ask_symptom
+  - intent: thankyou
+  - action: utter_thank_for_help
+  - action: utter_tell_user_to_check_with_doctor
+  - intent: thankyou

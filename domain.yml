@@ -3,9 +3,9 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- thankyou
 - inform_symptom
 - ask_for_bot_help
-- thankyou
 - greet
 - goodbye
 - affirm
@@ -59,6 +59,8 @@ actions:
 - action_ask_more_symptom
 - action_ask_symptom
 - utter_remember
+- utter_tell_user_to_check_with_doctor
+- utter_thank_for_help
 forms:
   symptom_form:
     required_slots:

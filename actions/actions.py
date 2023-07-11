@@ -6,11 +6,11 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 from rasa_sdk.events import SlotSet, UserUtteranceReverted, AllSlotsReset
-from .semantic import get_input_symptom, embed_text
+from .semantic_search import get_input_symptom, embed_text
 import ast
 
 """# Data loading"""
-data = pd.read_csv("/home/patiparn/rasa_thainlp/rasatest/actions/sepSymptom.csv")
+data = pd.read_csv("/home/patiparn/rasa_thainlp/thai_med_bot/actions/sepSymptom.csv")
 data["symptom"] = data["symptom1"].apply(ast.literal_eval)
 data['embed'] = [np.array(embed_text(text)) for text in data['symptom']]
 
@@ -121,3 +121,24 @@ def tell_disease_message_list():
 def adjust_theshold(result_from_input):
     if result_from_input:
         pass
+
+# ให้ bot เริ่มต้นบทสนทนาใหม่ได้
+def start_over_bot():
+    pass
+
+# ให้มีการเก็บค่าเอาไว้ใน database เผื่อเอาใช้เรียกใช้อีกรอบ
+class CheckSymptomDatabase(Action):
+
+    def name(self) -> Text:
+        return "check_symptom_database"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # get exist slot value
+        exist_slot = tracker.get_slot("symptom")
+        
+        return[]
+
+    
