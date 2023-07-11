@@ -36,3 +36,6 @@ for use in the Meta Messengers channel, using the following command (but you hav
 ```
 rasa run --credentials credentials.yml
 ```
+
+## Ref.
+Thanks for how to use pythainlp's dependencies in Rasa : https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai-tokenizer/
