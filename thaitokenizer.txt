@@ -1,0 +1,58 @@
+1#install python3.8 to relate with pythainlp's dependencies
+
+sudo apt-get install software-properties-common
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+
+sudo apt update
+
+sudo apt install python3.8
+
+python3.8 --version
+
+sudo apt-get install python3.8-venv
+
+python3.8 -m venv --without-pip ./venv
+
+source ./venv/bin/activate
+
+curl https://bootstrap.pypa.io/get-pip.py | python
+
+pip --version
+
+deactivate
+
+----------------------------------------------------
+
+2# install rasa
+
+pip install rasa[full]
+
+pip install git+https://github.com/RasaHQ/rasa-nlu-examples.git@main#egg=rasa_nlu_examples[thai]
+
+rasa --version
+
+pip3 install rasa[spacy]
+----------------------------------------------------
+
+3#create rasa assistant
+
+go to config.yml and using this:
+
+language: th
+pipeline:
+  - name: rasa_nlu_examples.tokenizers.ThaiTokenizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+
+----------------------------------------------------
+#reference
+
+https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai-tokenizer/
+
+
