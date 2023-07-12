@@ -3,9 +3,9 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- thankyou
-- inform_symptom
 - ask_for_bot_help
+- inform_symptom
+- thankyou
 - greet
 - goodbye
 - affirm
@@ -39,16 +39,12 @@ responses:
   - text: ลาก่อน
   utter_iamabot:
   - text: ฉันเป็นบอทที่สร้างสรรค์โดย Rasa
-  utter_ask_symptom:
-  - text: กรุณาบอกอาการของคุณให้ฉันรู้
   utter_remember:
   - text: เรากำลังวิเคราะห์อาการของคุณ.....
   - text: กำลังประมวลผลหาโรคที่พบ.....
   - text: ขอเวลาคิดแปบนึงนะ...
   utter_symptom_slots:
   - text: สิ่งที่คุณบอกคือ {symptom}
-  utter_ask_symptom_more:
-  - text: เราขอทราบอาการของคุณเพิ่มเติมอีกซักหน่อย
   utter_thank_for_help:
   - text: เรายินดีให้ความช่วยเหลือได้ทุกเมื่อ
   - text: ขอบคุณที่ให้เราเป็นส่วนหนึ่งของการแก้ไขปัญหาของคุณ
@@ -58,6 +54,8 @@ responses:
 actions:
 - action_ask_more_symptom
 - action_ask_symptom
+- action_check_symptom_database
+- action_clear_symptom_slots
 - utter_remember
 - utter_tell_user_to_check_with_doctor
 - utter_thank_for_help

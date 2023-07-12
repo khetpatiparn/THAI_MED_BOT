@@ -14,7 +14,7 @@ data = pd.read_csv("/home/patiparn/rasa_thainlp/thai_med_bot/actions/sepSymptom.
 data["symptom"] = data["symptom1"].apply(ast.literal_eval)
 data['embed'] = [np.array(embed_text(text)) for text in data['symptom']]
 
-SYMPTOMS_DATABASE = []
+SYMPTOMS_DATABASE = set() # เก็บเป็น set
 
 class ActionAskSymptom(Action):
 
@@ -27,6 +27,8 @@ class ActionAskSymptom(Action):
 
         symptoms = tracker.get_slot("symptom") # รับ slot => ["ปวดหัว", "ตัวร้อน"]
 
+        SYMPTOMS_DATABASE.update(set(tracker.get_latest_entity_values("symptom"))) # เพิ่มค่า symptoms ที่สกัดได้เก็บไว้ใน Database
+
         if not symptoms: # ในตอนแรก slot จะไม่มีการเก็บค่า เริ่มต้นเป็น None เราก็ให้แสดงข้อความอื่นแทน
             dispatcher.utter_message(text = message_begin_list())
 
@@ -35,7 +37,7 @@ class ActionAskSymptom(Action):
             result_from_input = get_input_symptom(symptoms, data)
 
             # 2 คัดแยกข้อมูลที่ได้
-            item_or_message, is_valid= FilterData(result_from_input, symptoms, theshold = 72)
+            item_or_message, is_valid= FilterData(result_from_input, symptoms, theshold = 77) #72 for work # 77 for test
             if (is_valid == True):
                 dispatcher.utter_message(text="{}".format(item_or_message)) # บอกอาการ
             
@@ -85,6 +87,9 @@ class ActionAskMoreSymptom(Action):
         
         entities = tracker.get_latest_entity_values("symptom")
         myvalue = list(entities) # ['หน้าแดง']
+
+        SYMPTOMS_DATABASE.update(set(myvalue)) # เพิ่มค่า symptoms ที่สกัดได้เก็บไว้ใน Database
+        
         slots_current = tracker.get_slot("symptom") # ['ปวดหัว', 'ตัวร้อน']
         total_symptom = slots_current + myvalue
         dispatcher.utter_message(text=tell_more_symptom_message__list(myvalue))
@@ -126,19 +131,27 @@ def adjust_theshold(result_from_input):
 def start_over_bot():
     pass
 
-# ให้มีการเก็บค่าเอาไว้ใน database เผื่อเอาใช้เรียกใช้อีกรอบ
-class CheckSymptomDatabase(Action):
+# ให้มีการเก็บค่าเอาไว้ใน database => SYMPTOMS_DATABASE เผื่อเอาใช้เรียกใช้อีกรอบ
+class ActionCheckSymptomDatabase(Action):
 
     def name(self) -> Text:
-        return "check_symptom_database"
+        return "action_check_symptom_database"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        # get exist slot value
-        exist_slot = tracker.get_slot("symptom")
-        
+        dispatcher.utter_message(text=str(SYMPTOMS_DATABASE))
         return[]
 
-    
+# เคลียร์ slot หลังจากจบ conversation
+class ActionClearSymptomSlots(Action):
+
+    def name(self) -> Text:
+        return "action_clear_symptom_slots"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(response = "utter_thank_for_help")
+        return [SlotSet(key = "symptom", value = None)]
