@@ -37,7 +37,7 @@ class ActionAskSymptom(Action):
             result_from_input = get_input_symptom(symptoms, data)
 
             # 2 คัดแยกข้อมูลที่ได้
-            item_or_message, is_valid= FilterData(result_from_input, symptoms, theshold = 77) #72 for work # 77 for test
+            item_or_message, is_valid= FilterData(result_from_input, symptoms, theshold = 75) #72 for work # 77 for test
             if (is_valid == True):
                 dispatcher.utter_message(text="{}".format(item_or_message)) # บอกอาการ
             
@@ -155,3 +155,15 @@ class ActionClearSymptomSlots(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(response = "utter_thank_for_help")
         return [SlotSet(key = "symptom", value = None)]
+    
+# สร้างคำพูดที่เอาไว้จบการสนทนาแล้วสามารถถามบอทใหม่
+class ActionStartOver(Action):
+
+    def name(self) -> Text:
+        return "action_start_over"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(response = )
+        return []

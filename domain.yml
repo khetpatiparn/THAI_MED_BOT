@@ -59,6 +59,7 @@ actions:
 - utter_remember
 - utter_tell_user_to_check_with_doctor
 - utter_thank_for_help
+- action_start_over
 forms:
   symptom_form:
     required_slots:
