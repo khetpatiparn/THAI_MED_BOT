@@ -11,14 +11,7 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
-
-# actions
-# - rule: Tell the Symptom
-#   steps:
-#   - intent: inform_symptom
-#   - action: utter_remember
-#   - action: action_ask_symptom
-
+ 
 # forms
 - rule: Activate Symptom form
   steps:
@@ -37,21 +30,5 @@ rules:
   - action: utter_remember
   - action: action_ask_symptom
 
-
-# - rule: Activate More Symptom form
-#   steps:
-#   - action: action_session_start
-#   - active_loop: more_symptom_form
-
-# - rule: Submit More Symptom form
-#   condition:
-#   - active_loop: more_symptom_form
-#   steps:
-#   - action: more_symptom_form
-#   - active_loop: null
-#   - slot_was_set:
-#     - requested_slot: null
-#   - action: utter_remember
-#   - action: action_ask_more_symptom
 
 

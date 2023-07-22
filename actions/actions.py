@@ -1,4 +1,3 @@
-import random
 import pandas as pd
 import numpy as np
 from typing import Any, Text, Dict, List, Optional
@@ -7,6 +6,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 from rasa_sdk.events import SlotSet, UserUtteranceReverted, AllSlotsReset
 from .semantic_search import get_input_symptom, embed_text
+from .module import  *
 import ast
 
 """# Data loading"""
@@ -37,44 +37,14 @@ class ActionAskSymptom(Action):
             result_from_input = get_input_symptom(symptoms, data)
 
             # 2 คัดแยกข้อมูลที่ได้
-            item_or_message, is_valid= FilterData(result_from_input, symptoms, theshold = 75) #72 for work # 77 for test
+            item_or_message, is_valid= FilterData(result_from_input, symptoms, theshold = 72) #72 for work # 77 for test
             if (is_valid == True):
                 dispatcher.utter_message(text="{}".format(item_or_message)) # บอกอาการ
+                return [SlotSet(key = "symptom", value = None)]
             
             elif (is_valid == False):
                 dispatcher.utter_message(text="{}".format(item_or_message)) # ขออาการเพิ่มเติม
         return []
-
-# ฉันรู้สึกปวดหัวและตัวร้อนเล็กน้อย
-# ฉันอยากทราบอาการของฉัน
-# ฉันรู้สึกเจ็บคอ
-
-def FilterData(result_from_input,symptoms, theshold):
-    # 1 กรองตัดเลขด้านหน้าออก
-    for idx, item in enumerate(result_from_input.values()):
-
-    # 2. คัดแยกโรคที่ได้ตามค่า theshold
-    # 2.1 ถ้าหาก score มากกว่า theshold ให้คืนข้อมูลที่มีค่า score สูงที่สุด
-        if (item["score"] * 100) >=  theshold:
-            if idx == 0:
-                message = tell_disease_message_list()
-                return message + item["th_name"], True
-            
-    # 2.2 ถ้าหาก score น้อยกว่า theshold ให้คืน message กลับไปที่ user ว่าขอข้อมูลเพิ่ม
-        elif (item["score"] * 100) < theshold:
-            message = message_for_more_symptoms(symptoms)
-            return message, False
-       
-def message_for_more_symptoms(symptoms):
-    concat = ", ".join(symptoms)
-    messages = [
-        "เรามีอาการอะไรอื่นนอกจากนี้ร่วมด้วยหรือป่าว",
-        "นอกจาก{}แล้วมีอาการอื่นอีกรึป่าว".format(concat),
-        "มีอะไรนอกจาก{}บ้างรึป่าว".format(concat),
-            ]
-    random_message = random.choice(messages)
-    return random_message
-
 
 class ActionAskMoreSymptom(Action):
 
@@ -95,41 +65,6 @@ class ActionAskMoreSymptom(Action):
         dispatcher.utter_message(text=tell_more_symptom_message__list(myvalue))
         return [SlotSet(key = "symptom", value = total_symptom)]
 
-def message_begin_list():
-    messages = [
-        "ได้เลย ลองบอกอาการของคุณมาหน่อยสิ",
-        "เข้าใจแล้วหล่ะ บอกอาการของคุณมาหน่อยสิ",
-        "อาการมันเป็นอย่างไรหรอครับ",
-        "เราอยากรู้อาการของคุณ ช่วยบอกให้ฉันรู้หน่อยสิ"
-        ]
-    random_message = random.choice(messages)
-    return random_message
-
-def tell_more_symptom_message__list(myvalue):
-    messages = [
-        "มี{}ร่วมด้วยนะครับ".format(','.join(myvalue)),
-        "มี{}ด้วย...แบบนี้นี่เองงง".format(','.join(myvalue)),
-        ]
-    random_message = random.choice(messages)
-    return random_message
-
-def tell_disease_message_list():
-    messages = [
-        "เราคิดว่าคุณน่าจะมีอาการ",
-        "คุณอาจจะเป็น",
-        "คุณเข้าข่ายอาการ"
-        ]
-    random_message = random.choice(messages)
-    return random_message
-
-# ปรับ theshold ลงเมื่อยังหาค่าไม่ได้ซัก 3 ตัว
-def adjust_theshold(result_from_input):
-    if result_from_input:
-        pass
-
-# ให้ bot เริ่มต้นบทสนทนาใหม่ได้
-def start_over_bot():
-    pass
 
 # ให้มีการเก็บค่าเอาไว้ใน database => SYMPTOMS_DATABASE เผื่อเอาใช้เรียกใช้อีกรอบ
 class ActionCheckSymptomDatabase(Action):
@@ -145,25 +80,25 @@ class ActionCheckSymptomDatabase(Action):
         return[]
 
 # เคลียร์ slot หลังจากจบ conversation
-class ActionClearSymptomSlots(Action):
+# class ActionClearSymptomSlots(Action):
 
-    def name(self) -> Text:
-        return "action_clear_symptom_slots"
+#     def name(self) -> Text:
+#         return "action_clear_symptom_slots"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(response = "utter_thank_for_help")
-        return [SlotSet(key = "symptom", value = None)]
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         dispatcher.utter_message(response = "utter_thank_for_help")
+#         return [SlotSet(key = "symptom", value = None)]
     
 # สร้างคำพูดที่เอาไว้จบการสนทนาแล้วสามารถถามบอทใหม่
-class ActionStartOver(Action):
+# class ActionStartOver(Action):
 
-    def name(self) -> Text:
-        return "action_start_over"
+#     def name(self) -> Text:
+#         return "action_start_over"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(response = )
-        return []
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         dispatcher.utter_message(response = )
+#         return []

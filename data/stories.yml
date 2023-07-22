@@ -2,35 +2,6 @@ version: "3.0"
 
 stories:
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
-
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
-
-
-
 - story: interactive_story_1
   steps:
   - intent: ask_for_bot_help
@@ -58,129 +29,49 @@ stories:
       - เจ็บคอ
   - action: utter_remember
   - action: action_ask_symptom
-
-- story: interactive_story_1
-  steps:
-  - intent: ask_for_bot_help
-    entities:
-    - symptom: อาการ
-  - action: symptom_form
-  - active_loop: symptom_form
-  - slot_was_set:
-    - requested_slot: symptom
-  - slot_was_set:
-    - symptom:
-      - ปวดหัว
-      - ตัวร้อน
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_remember
-  - action: action_ask_symptom
-  - intent: inform_symptom
-    entities:
-    - symptom: เจ็บคอ
-  - action: action_ask_more_symptom
-  - slot_was_set:
-    - symptom:
-      - ปวดหัว
-      - ตัวร้อน
-      - เจ็บคอ
-  - action: utter_remember
-  - action: action_ask_symptom
-  - intent: thankyou
-
-- story: interactive_story_1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: ask_for_bot_help
-  - action: symptom_form
-  - active_loop: symptom_form
-  - slot_was_set:
-    - requested_slot: symptom
-  - slot_was_set:
-    - symptom:
-      - เจ็บคอ
-      - ตัวร้อน
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_remember
-  - action: action_ask_symptom
-  - intent: thankyou
-  - action: utter_thank_for_help
-  - action: utter_tell_user_to_check_with_doctor
-
-- story: interactive_story_2
-  steps:
-  - intent: ask_for_bot_help
-  - action: symptom_form
-  - active_loop: symptom_form
-  - slot_was_set:
-    - requested_slot: symptom
-  - slot_was_set:
-    - symptom:
-      - อ่อนเพลีย
-      - ไม่มีแรง
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_remember
-  - action: action_ask_symptom
-
-- story: interactive_story_1
-  steps:
-  - intent: ask_for_bot_help
-    entities:
-    - symptom: อาการ
-  - action: symptom_form
-  - active_loop: symptom_form
-  - slot_was_set:
-    - requested_slot: symptom
-  - slot_was_set:
-    - symptom:
-      - เป็นลม
-      - หน้ามืด
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_remember
-  - action: action_ask_symptom
-  - intent: thankyou
-  - action: utter_thank_for_help
-  - action: utter_tell_user_to_check_with_doctor
-  - intent: thankyou
-
-- story: interactive_story_1
-  steps:
-  - intent: ask_for_bot_help
-  - action: symptom_form
-  - active_loop: symptom_form
-  - slot_was_set:
-    - requested_slot: symptom
-  - slot_was_set:
-    - symptom:
-      - ปวดหัว
-      - ตัวร้อน
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_remember
-  - action: action_ask_symptom
-  - intent: inform_symptom
-    entities:
-    - symptom: เจ็บคอ
-  - action: action_ask_more_symptom
-  - slot_was_set:
-    - symptom:
-      - ปวดหัว
-      - ตัวร้อน
-      - เจ็บคอ
-  - action: utter_remember
-  - action: action_ask_symptom
-  - intent: thankyou
-  - action: action_clear_symptom_slots
   - slot_was_set:
     - symptom: null
+  - intent: thankyou
+  - action: utter_thank_for_help
+  - action: utter_tell_user_to_check_with_doctor
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_for_bot_help
+  - action: symptom_form
+  - active_loop: symptom_form
+  - slot_was_set:
+    - requested_slot: symptom
+  - slot_was_set:
+    - symptom:
+      - หน้ามืด
+      - เป็นลม
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_remember
+  - action: action_ask_symptom
+  - slot_was_set:
+    - symptom: null
+  - intent: thankyou
+  - action: utter_thank_for_help
+  - action: utter_tell_user_to_check_with_doctor
+  - intent: ask_for_bot_help
+  - action: symptom_form
+  - active_loop: symptom_form
+  - slot_was_set:
+    - requested_slot: symptom
+  - slot_was_set:
+    - symptom:
+      - คลื่นไส้
+      - อาเจียน
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_remember
+  - action: action_ask_symptom
+  - slot_was_set:
+    - symptom: null
+  - intent: thankyou
+  - action: utter_thank_for_help
   - action: utter_tell_user_to_check_with_doctor

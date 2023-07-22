@@ -3,9 +3,9 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- ask_for_bot_help
-- inform_symptom
 - thankyou
+- inform_symptom
+- ask_for_bot_help
 - greet
 - goodbye
 - affirm
@@ -49,17 +49,17 @@ responses:
   - text: เรายินดีให้ความช่วยเหลือได้ทุกเมื่อ
   - text: ขอบคุณที่ให้เราเป็นส่วนหนึ่งของการแก้ไขปัญหาของคุณ
   utter_tell_user_to_check_with_doctor:
-  - text: เบื้องต้นเราสามารถบอกโรคได้จากอาการที่กล่าวมาข้างต้นเท่านั้น ดีที่สุดควรไปพบแพทย์เพื่อตรวจรักษานะค่ะ
+  - text: เบื้องต้นเราสามารถบอกโรคได้จากอาการที่กล่าวมาข้างต้นเท่านั้น ดีที่สุดควรไปพบแพทย์เพื่อตรวจรักษานะคะ
   - text: เบื้องต้นเราสามารถบอกโรคได้จากอาการที่กล่าวมาข้างต้นเท่านั้น ดีที่สุดควรไปพบแพทย์เพื่อตรวจรักษานะครับ
 actions:
 - action_ask_more_symptom
 - action_ask_symptom
 - action_check_symptom_database
 - action_clear_symptom_slots
+- action_start_over
 - utter_remember
 - utter_tell_user_to_check_with_doctor
 - utter_thank_for_help
-- action_start_over
 forms:
   symptom_form:
     required_slots:
